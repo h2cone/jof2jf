@@ -43,7 +43,10 @@ public class Cli {
             System.err.printf("Failed to parse: %s, exception: %s\n", Arrays.toString(args), e);
             return;
         }
-
+        if (cmd.hasOption("h")) {
+            printHelp(options);
+            return;
+        }
         List<String> argList = cmd.getArgList();
         if (argList.size() < 2) {
             System.err.println("JSON object file pathname and Java file directory not provided");
