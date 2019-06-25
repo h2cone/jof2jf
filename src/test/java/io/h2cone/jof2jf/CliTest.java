@@ -67,6 +67,11 @@ public class CliTest {
     }
 
     @Test
+    public void argsRequired() {
+        Cli.main();
+    }
+
+    @Test
     public void help() {
         Cli.main("--help");
     }
