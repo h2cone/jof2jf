@@ -28,7 +28,7 @@ HELP.md
 ### VS Code ###
 .vscode/
 
-### Other ###
+### MVN ###
 .mvn
 mvnw
 mvnw.cmd
