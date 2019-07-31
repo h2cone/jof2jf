@@ -40,11 +40,12 @@ public class CliTest {
     @Test
     public void compare() throws IOException {
         String className = Foobar.class.getSimpleName();
-        InputStream jsonObjectIn = this.getClass().getClassLoader().getResourceAsStream("Foobar.json");
-
-        ObjectMapper mapper = Cli.mapper();
-        Map<String, Object> body = mapper.readValue(jsonObjectIn, new TypeReference<LinkedHashMap<String, Object>>() {
-        });
+        Map<String, Object> body;
+        try (InputStream jsonObjectIn = this.getClass().getClassLoader().getResourceAsStream("Foobar.json")) {
+            ObjectMapper mapper = Cli.mapper();
+            body = mapper.readValue(jsonObjectIn, new TypeReference<LinkedHashMap<String, Object>>() {
+            });
+        }
         Assert.assertNotNull(body);
 
         TypeSpec typeSpec = Cli.typeSpec(body, className);
