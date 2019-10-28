@@ -10,6 +10,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <maven-shade-plugin.version>3.2.1</maven-shade-plugin.version>
 
         <jackson-databind.version>2.9.10</jackson-databind.version>
         <javapoet.version>1.11.1</javapoet.version>
@@ -43,10 +44,10 @@
 
     <build>
         <plugins>
-            <!-- https://www.baeldung.com/executable-jar-with-maven -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
+                <version>${maven-shade-plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
